@@ -1,0 +1,123 @@
+body{
+    background-color: #222;
+    margin: 0;
+    font-family:'monospace','sans-serif';
+    font-weight: 400;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+header{
+    background: #55d6aa;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+nav{
+    background: #55d6aa;
+    width: 100%;
+    position: absolute;
+    text-align: left;
+    /* display: none; */
+    transform:scale(1,0) ;
+    transform-origin: top;
+    transition: 400ms ease-in-out;
+}
+.logo{
+    /* float: left; */
+    padding: 10px 0;
+    width: 6%;
+    height: 3%;
+}
+.nav-toggle{
+    display: none;
+}
+.nav-toggle-lable{
+    position:absolute;
+    top:0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle-lable span,
+.nav-toggle-lable span::before,
+.nav-toggle-lable span::after{
+    display: block;
+    background: white;
+    height: 2px;
+    border-radius: 2PX;
+    width: 2em;
+    position: relative;
+}
+
+.nav-toggle-lable span::before,
+.nav-toggle-lable span::after{
+content: '';
+position: absolute;
+}
+.nav-toggle-lable span::before{
+    bottom: 7px;
+}
+.nav-toggle-lable span::after{
+top: 7px;
+}
+nav{
+    float: right;
+    text-align: left;
+    top: 100%;
+    left: 0;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    /* display: inline-block; */
+    margin-left: 2em;
+    margin-bottom: 1em;
+    padding-top: 23px;
+    position: relative;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out ;
+}
+nav a:hover{
+color: #000;
+
+}
+nav a::before{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #444;
+    position: absolute;
+    top: 0;
+    transition: all ease 250ms;
+}
+nav a:hover::before{
+    width: 100%;
+}
+.nav-toggle:checked ~ nav{
+    /* display: block; */
+    transform: scale(1,1);
+}
+.nav-toggle:checked ~ nav a{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 300ms;
+}
